@@ -1,25 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './redux/store';
+import { ScoreCounter } from './components/scoreCounter';
+import { Button, Container } from '@mui/material';
+import { resetScore } from './redux/scoreSlice';
+import { NewMatch } from './components/NewMatch';
+import { TeamCard } from './components/TeamCard';
+import OverStats from './components/OverStats';
 
 function App() {
+  const { isMatchOver, isMatchStarted } = useSelector(
+    (state: RootState) => state.score
+  );
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg">
+      <div className="App">
+        {!isMatchStarted ? (
+          <NewMatch />
+        ) : (
+          <Fragment>
+            <TeamCard />
+            <OverStats/>
+            {isMatchOver ? (
+              <Fragment>
+                <h4>Match ended</h4>{' '}
+                <Button
+                  variant="outlined"
+                  onClick={() => dispatch(resetScore())}
+                  color="info"
+                >
+                  Reset Score
+                </Button>
+              </Fragment>
+            ) : (
+              <ScoreCounter />
+            )}
+          </Fragment>
+        )}
+      </div>
+    </Container>
   );
 }
 
