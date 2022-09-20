@@ -27,15 +27,15 @@ export const ScoreCounter = () => {
   return (
     <Grid
       xs={12}
-      margin={3}
       container
       spacing={2}
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
+      marginTop={3}
       
     >
-      <Grid xs={4}>
+      <Grid xs={10} md={4}>
         <ButtonGroup
           fullWidth
           variant="outlined"
@@ -47,7 +47,7 @@ export const ScoreCounter = () => {
           <Button sx={{fontWeight:'bold'}} onClick={() => increaseScore(3)}>3</Button>
         </ButtonGroup>
       </Grid>
-      <Grid xs={4}>
+      <Grid xs={10} md={4}>
         <ButtonGroup
           fullWidth
           variant="outlined"
@@ -58,7 +58,7 @@ export const ScoreCounter = () => {
           <Button sx={{fontWeight:'bold'}} onClick={() => increaseScore(6)}>6</Button>
         </ButtonGroup>
       </Grid>
-      <Grid xs={4}>
+      <Grid xs={10} md={4}>
         <ButtonGroup
           fullWidth
           variant="outlined"
@@ -69,7 +69,7 @@ export const ScoreCounter = () => {
           <Button disabled={!!extra} sx={{fontWeight:'bold'}} onClick={() => setExtra('NB')}>No Ball</Button>
         </ButtonGroup>
       </Grid>
-      <Grid xs={4}>
+      <Grid xs={10} md={4}>
         <ButtonGroup
           fullWidth
           variant="outlined"

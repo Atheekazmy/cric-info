@@ -2,6 +2,7 @@
   "name": "crick-score",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Atheekazmy.github.io/cric-info",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -29,7 +30,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "tsc --watch",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +58,7 @@
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.8",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1"
   }
 }
